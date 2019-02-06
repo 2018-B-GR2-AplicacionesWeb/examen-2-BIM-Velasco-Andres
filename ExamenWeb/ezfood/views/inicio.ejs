@@ -1,0 +1,73 @@
+
+<% include ./comunes/header.ejs %>
+<div class="container">
+    <div class="row" style="padding-top: 100px">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 bg-dark text-white" id="contenido" >
+        <h1>Eventos: </h1>
+        <form action="/" method="get">
+            <div class="row" style="background-color: rgba(0, 0, 0, 0.7);">
+                <div class="col-sm-9">
+                    <div class="form-group">
+                        <label for="busqueda">Busqueda de eventos</label>
+                        <input id="busqueda"
+                               type="text"
+                               class="form-control"
+                               name="busqueda">
+                    </div>
+
+                </div>
+                <div class="col-sm-3">
+
+                    <button class="btn btn-dark btn-block btn-buscar"
+                            type="submit">Buscar
+                    </button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-2"></div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 text-white" style="background-color: rgba(0, 0, 0, 0.7);">
+        <table class="table table-hover animated fadeInUp">
+            <caption>Lista de eventos</caption>
+            <!-- tr -> table row -->
+            <thead>
+            <tr>
+                <!-- th -> table header -->
+                <th width="30%">Nombre</th>
+                <th width="50%">Fecha</th>
+                <th width="20%">Acciones</th>
+
+            </tr>
+            </thead>
+            <!-- tr -> table row -->
+            <tbody>
+            <% eventos.forEach((evento)=>{ %>
+                <tr>
+                    <!-- td -> table detail -->
+                    <td><%= evento.nombre %></td>
+                    <td><%= evento.fecha %></td>
+                    <td><a href="/evento/ver/<%= evento.id %>">
+                            <button class="btn btn-info btn-block btn-b"
+                                type="submit">Ver
+                            </button>
+                        </a>
+                    </td>
+
+                </tr>
+            <% }) %>
+            </tbody>
+        </table>
+
+    </div>
+    <div class="col-md-2"></div>
+</div>
+</div>
+<% include ./comunes/librerias.ejs %>
+<% include ./comunes/footer.ejs %>
